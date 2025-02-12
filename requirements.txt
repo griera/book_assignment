@@ -1,0 +1,6 @@
+numpy
+pandas
+pyfiglet
+unidecode
+termcolor
+scipy
