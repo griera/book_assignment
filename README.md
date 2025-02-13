@@ -1,5 +1,39 @@
 # Book Assignment
+
 A Python script to assign books to people based on preferences using the [Hungarian algorithm](https://cp-algorithms.com/graph/hungarian-algorithm.html).
+
+## Inspiration and Local Bookstores
+
+This project was inspired by a real event that took place in Italy, where book lovers emptied the storefront of local bookstores in a revolutionary act to support independent booksellers. You can read more about this event in the original news article here: [El País - Una revolución de bibliófilos vacía los escaparates de las librerías italianas](https://elpais.com/cultura/2024-12-22/una-revolucion-de-bibliofilos-vacia-los-escaparates-de-las-librerias-italianas.html).
+
+Motivated by this initiative, this project aims to replicate the movement by leveraging mathematics and programming to optimally allocate books to people who participate in similar actions to support local bookstores.
+
+### Local Bookstores Supported
+
+The following local bookstores have contributed to the adoption and spread of this project:
+
+#### La Carbonera
+- Address: Carrer de Blai, 40, Sants-Montjuïc, 08004 Barcelona ([Google Maps](https://maps.app.goo.gl/h3Bqrgr1UbBkXVB57))
+- Website: [carbonera.cat](https://carbonera.cat/)
+- Online bookstore: [botiga.carbonera.cat](https://botiga.carbonera.cat/)
+
+On February 8, 2025, the members of La Carbonera, eager for new readings and passionate about supporting their local bookstore, bought the entire storefront. To fairly distribute the books among themselves, they turned to this Python script for optimal allocation.
+
+They used this scropt as follows:
+```bash
+# Download the official logo archive from La Carbonera's website
+wget https://carbonera.cat/wp-content/uploads/2019/11/drive-download-20191025T083544Z-001.zip -O /tmp/la_carbonera_logos.zip
+
+# Extract the images from the downloaded ZIP archive
+unzip /tmp/la_carbonera_logos.zip
+
+# Run the script
+python3 assign_books.py --drive_id FILE_ID \
+  --debug \
+  --ascii \
+  --ascii_banner "Moltes gràcies equip de La Carbonera! Atentament, El Ministeri d'Exteriors de Sidrals Canoners" \
+  --ascii_image /tmp/LA_CARBONERA_LOGO_NEG_OK.jpg
+```
 
 ## Installation
 ```bash
@@ -58,11 +92,18 @@ The script accepts the following command-line arguments:
 
 - Assign books using a Google Drive file, enable evil mode, enable ASCII art to display books assignment with a custom banner at the end:
   ```bash
-  python3 assign_books.py --drive_id YOUR_FILE_ID --evil_mode --ascii --ascii_banner "Book Club Assignments"
+  python3 assign_books.py --drive_id YOUR_FILE_ID \
+    --evil_mode \
+    --ascii \
+    --ascii_banner "Book Club Assignments"
 
 - Assign books using a Google Drive file, enable evil mode, enable ASCII art to display books assignment with a custom evil author and banner at the end:
   ```bash
-  python3 assign_books.py --drive_id YOUR_FILE_ID --evil_mode --ascii --evil_name "Chaos Demon" --evil_banner "Chaos Mode Activated"
+  python3 assign_books.py --drive_id YOUR_FILE_ID \
+    --evil_mode \
+    --ascii \
+    --evil_name "Chaos Demon" \
+    --evil_banner "Chaos Mode Activated"
 
 - Show help:
   ```bash
