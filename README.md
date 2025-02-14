@@ -25,7 +25,7 @@ They used this scropt as follows:
 wget https://carbonera.cat/wp-content/uploads/2019/11/drive-download-20191025T083544Z-001.zip -O /tmp/la_carbonera_logos.zip
 
 # Extract the images from the downloaded ZIP archive
-unzip /tmp/la_carbonera_logos.zip
+unzip /tmp/la_carbonera_logos.zip -d /tmp/
 
 # Run the script
 python3 assign_books.py --drive_id FILE_ID \
